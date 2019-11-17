@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Data App</string>
+
+    <!--Related to Dialog message-->
+    <string name="app_exit_message">Do you want to exit application?</string>
+    <string name="app_something_wrong_msg">Something went wrong!</string>
+    <string name="txt_ok">OK</string>
+    <string name="txt_yes">YES</string>
+    <string name="txt_no">NO</string>
+    <!--Related to home activity-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_1">Contact List</string>
+    <string name="menu_2">Add Contact</string>
+    <string name="menu_3">Add Category</string>
+
+    <!--Related to Contacts list fragment-->
+    <string name="contact_list_empty_msg">Contacts not found!</string>
+
+    <!--Related to Add contacts fragment-->
+    <string name="add_contact_name_hint">Enter your name</string>
+    <string name="add_contact_email_hint">Enter your email</string>
+    <string name="add_contact_address_hint">Enter your address</string>
+    <string name="add_contact_number_hint">Enter your mobile number</string>
+    <string name="add_contact_btn_add">Add</string>
+
+    <string name="add_contact_empty_fields_msg">All fields are required!</string>
+    <string name="add_contact_email_not_valid">Invalid email address</string>
+    <string name="add_contact_added_msg">Record added successfully!</string>
+    <string name="add_contact_confirm_delete_msg">Are you sure you want to delete this record?</string>
+
+    <!--Related to Add category fragment-->
+    <string name="add_category_cat_name_hint">Enter category</string>
+    <string name="add_category_cat_name_required">This filed is required</string>
+    <string name="add_category_btn_add">Add</string>
+
+    <string name="category_list_empty_msg">Categories not found!</string>
+
+    <!--Related to Edit contact activity-->
+    <string name="edit_contact_title">Edit Details</string>
+    <string name="edit_contact_btn_update_text">Update</string>
+    <string name="edit_contact_btn_cancel_text">Cancel</string>
+    <string name="edit_contact_update_msg">Record updated successfully!</string>
+</resources>

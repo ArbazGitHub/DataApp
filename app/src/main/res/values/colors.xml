@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorToolbarText">#FFFFFF</color>
+    <color name="colorAppBG">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#A39D9D</color>
+
+    <!--Related to EditText-->
+    <color name="color_ControlNormal">#D81B60</color>
+    <color name="color_ControlActivated">#008577</color>
+    <color name="color_ControlHighlight">#008577</color>
+
+    <!--Related Buttons-->
+    <color name="btnTextWhite">#FFFFFF</color>
+    <color name="btnBGPrimary">#008577</color>
+
+    <!--Related Recycler view-->
+    <color name="rvTextPrimary">#008577</color>
+    <color name="rvTextWhite">#FFFFFF</color>
+</resources>

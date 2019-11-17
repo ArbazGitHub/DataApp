@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--Related to TextInputLayout-->
+    <style name="DataAppTextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="hintTextAppearance">@style/style_EditText_HintStyle</item>
+        <item name="errorTextAppearance">@style/style_EditText_ErrorStyle</item>
+    </style>
+
+    <!--For EditText Hint-->
+    <style name="style_EditText_HintStyle" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--For EditText Error style-->
+    <style name="style_EditText_ErrorStyle" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <!--Related to EditText-->
+    <style name="DataAppEditText">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="colorControlNormal">@color/color_ControlNormal</item>
+        <item name="colorControlActivated">@color/color_ControlActivated</item>
+        <item name="colorControlHighlight">@color/color_ControlHighlight</item>
+    </style>
+
+    <!--Related to Buttons-->
+    <style name="DataAppButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/btnTextWhite</item>
+        <item name="android:background">@color/btnBGPrimary</item>
+    </style>
+
+    <!--Dialog Animation Style-->
+    <style name="AppDialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+</resources>
