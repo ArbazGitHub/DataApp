@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Data App</string>
+    <string name="default_text">--</string>
 
     <!--Related to Dialog message-->
     <string name="app_exit_message">Do you want to exit application?</string>

@@ -1,6 +1,8 @@
 package com.example.dataapp.fragments;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dataapp.R;
+import com.example.dataapp.activities.contactListEdit.ContactEditActivity;
 import com.example.dataapp.adapters.contactList.ContactListAdapter;
 import com.example.dataapp.common.AppConstants;
 import com.example.dataapp.common.AppDialog;
@@ -73,7 +76,9 @@ public class ContactListFragment extends Fragment implements AdapterButtonClicks
     public void adapterButtonClick(int position, String buttonType, final ContactListItem contactListItem) {
         if (contactListItem != null) {
             if (buttonType.equals(AppConstants.CONTACT_BUTTON_TYPE_EDIT)) {
-
+                Intent intent = new Intent(getActivity(), ContactEditActivity.class);
+                intent.putExtra(AppConstants.INTENT_DATA_FOR_EDIT_CONTACT, contactListItem);
+                startActivityForResult(intent, AppConstants.REQUEST_CODE_FOR_EDIT_CONTACT);
             } else {
                 AppDialog.showAlertDialog(getActivity(), null,
                         getResources().getString(R.string.add_contact_confirm_delete_msg), getString(R.string.txt_yes), getString(R.string.txt_no), new DialogInterface.OnClickListener() {
@@ -93,8 +98,6 @@ public class ContactListFragment extends Fragment implements AdapterButtonClicks
 
 
             }
-        } else {
-            AppGlobal.displayShortToast(getActivity(), getResources().getString(R.string.app_something_wrong_msg));
         }
     }
 
@@ -114,4 +117,11 @@ public class ContactListFragment extends Fragment implements AdapterButtonClicks
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode== Activity.RESULT_OK){
+            loadContacts();
+        }
+    }
 }

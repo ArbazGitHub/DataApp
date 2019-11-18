@@ -70,8 +70,8 @@ public class HomeActivity extends DataAppBaseActivity implements View.OnClickLis
             setToolbar();
             setToolbarTitle(getString(R.string.menu_1));
             tbIvHMenu = displayMenu();
-            tbIVFilter = displayFilter();
-            tbIVSearch = displaySearch();
+//            tbIVFilter = displayFilter();
+//            tbIVSearch = displaySearch();
 
             leftMenuMainArrayList.add(new LeftMenuMain(getString(R.string.menu_1)));
             leftMenuMainArrayList.add(new LeftMenuMain(getString(R.string.menu_2)));
@@ -91,8 +91,7 @@ public class HomeActivity extends DataAppBaseActivity implements View.OnClickLis
                             try {
                                 if (leftMenuMain.getStrMenuTitle().equals(getString(R.string.menu_1))) {
                                     setToolbarTitle(getString(R.string.menu_1));
-                                    displayFilter();
-                                    displaySearch();
+
                                     changeFragment(new ContactListFragment());
                                     DrawerLayout drawer_home = findViewById(R.id.drawer_layout);
                                     drawer_home.closeDrawer(GravityCompat.START);

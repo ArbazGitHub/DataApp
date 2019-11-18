@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_5sdp"
+
     android:background="@color/colorAppBG"
     android:orientation="vertical"
     tools:context=".fragments.ContactListFragment">
+
+    <include layout="@layout/app_toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,6 +16,7 @@
         android:fillViewport="true">
 
         <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

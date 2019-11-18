@@ -100,6 +100,7 @@ public class AddContactFragment extends Fragment implements View.OnClickListener
                                             dialogInterface.dismiss();
                                             clearEditText();
                                             AppGlobal.hideKeyBoard(getActivity(), edACNumber);
+                                            edACName.requestFocus();
 
                                         }
                                     });

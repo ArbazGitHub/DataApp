@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TabHost;
 
 import com.example.dataapp.R;
 import com.example.dataapp.activities.DataAppBaseActivity;
+import com.example.dataapp.common.AppConstants;
 import com.example.dataapp.common.AppDialog;
 import com.example.dataapp.common.AppGlobal;
 import com.example.dataapp.database.DatabaseHelper;
@@ -24,9 +24,12 @@ public class ContactEditActivity extends DataAppBaseActivity implements View.OnC
             edECNumber;
     TextInputLayout tilECEmail;
     Button btnUpdate, btnCancel;
+    int updateID;
     String strName, strEmail, strAddress, strNumber;
 
+
     DatabaseHelper databaseHelper;
+    ContactListItem contactListItem;
 
     @Override
 
@@ -37,10 +40,13 @@ public class ContactEditActivity extends DataAppBaseActivity implements View.OnC
         setListeners();
     }
 
+
     public void initViews() {
         try {
+            databaseHelper=new DatabaseHelper(this);
             setToolbar();
             setToolbarTitle(getResources().getString(R.string.edit_contact_title));
+            hideMenu();
             tbIvBack = displayBack();
             edECName = findViewById(R.id.edECName);
             edECEmail = findViewById(R.id.edECEmail);
@@ -49,6 +55,14 @@ public class ContactEditActivity extends DataAppBaseActivity implements View.OnC
             tilECEmail = findViewById(R.id.tilECEmail);
             btnUpdate = findViewById(R.id.btnUpdate);
             btnCancel = findViewById(R.id.btnCancel);
+            if (getIntent().getExtras() != null) {
+                if (getIntent().getExtras().getSerializable(AppConstants.INTENT_DATA_FOR_EDIT_CONTACT) != null) {
+                    contactListItem = (ContactListItem) getIntent().getExtras().getSerializable(AppConstants.INTENT_DATA_FOR_EDIT_CONTACT);
+                    if (contactListItem != null) {
+                        setData(contactListItem);
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,6 +76,19 @@ public class ContactEditActivity extends DataAppBaseActivity implements View.OnC
             btnCancel.setOnClickListener(this);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setData(ContactListItem contactListItem) {
+        try {
+            updateID=contactListItem.getId();
+            edECName.setText(contactListItem.getStrName());
+            edECEmail.setText(contactListItem.getStrEmail());
+            edECAddress.setText(contactListItem.getStrAddress());
+            edECNumber.setText(contactListItem.getStrNumber());
+        } catch (Exception e) {
+            e.printStackTrace();
+
         }
     }
 
@@ -80,14 +107,17 @@ public class ContactEditActivity extends DataAppBaseActivity implements View.OnC
                         if (tilECEmail.isEnabled()) {
                             tilECEmail.setError(null);
                         }
-                        ContactListItem contactListItem = new ContactListItem(strName, strEmail, strAddress, strNumber);
-                        databaseHelper.insertContact(contactListItem);
+                        ContactListItem contactListItem = new ContactListItem(updateID,strName, strEmail, strAddress, strNumber);
+                        databaseHelper.updateContact(contactListItem);
                         AppDialog.showAlertDialog(this, null,
                                 getResources().getString(R.string.edit_contact_update_msg), getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         dialogInterface.dismiss();
                                         AppGlobal.hideKeyBoard(ContactEditActivity.this, edECNumber);
+                                        setResult(RESULT_OK);
+                                        finish();
+
 
                                     }
                                 });

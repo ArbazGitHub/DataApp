@@ -121,6 +121,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return contactListItemArrayList;
     }
 
+
+    //update contact
+    public int updateContact(ContactListItem contactListItem) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(DBConstants.FIELD_CONTACT_NAME, contactListItem.getStrName());
+        values.put(DBConstants.FIELD_CONTACT_EMAIL, contactListItem.getStrEmail());
+        values.put(DBConstants.FIELD_CONTACT_ADDRESS, contactListItem.getStrAddress());
+        values.put(DBConstants.FIELD_CONTACT_MOBILE, contactListItem.getStrNumber());
+
+
+        // updating row
+        return db.update(DBConstants.TABLE_NAME, values, DBConstants.FIELD_CONTACT_COLUMN_ID+ " = ?",
+                new String[]{String.valueOf(contactListItem.getId())});
+    }
+
+
     //delete contact
     public void deleteContact(ContactListItem contactListItem) {
         SQLiteDatabase db = this.getWritableDatabase();
